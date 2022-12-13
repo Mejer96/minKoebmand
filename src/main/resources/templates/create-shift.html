@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/form.css">
+
+    <meta charset="UTF-8">
+    <title>Opret Vagt</title>
+</head>
+<body>
+
+<!-- navbar -->
+<nav class="navbar navbar-expand-sm bg-white navbar-styling">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="navbar-item">
+                <a class="nav-link">Link 1</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- navbar -->
+
+<div class="form-div">
+    <form id="formElement" method="post">
+        <h5>Medarbejder navn:</h5>
+        <label for="employeeFirstName">Fornavn</label>
+        <br>
+        <input type="text" name="employeeFirstName">
+        <br>
+        <label for="employeeLastname">Efternavn</label>
+        <br>
+        <input type="text" name="employeeLastname">
+        <br>
+        <label for="date">Dato:</label>
+        <br>
+        <input type="date" placeholder="mm/dd/åå" name="date">
+        <br>
+        <label for="weekNumber">Uge nr.:</label>
+        <br>
+        <input type="number" name="weekNumber">
+        <br>
+        <label for="startTime">Mødetid:</label>
+        <br>
+        <input type="time" name="startTime">
+        <br>
+        <label for="endTime">Sluttidspunkt:</label>
+        <br>
+        <input type="time" name="endTime">
+    </form>
+
+</div>
+
+
+</body>
+
+<script>
+
+    const url = "http://localhost:8080/create-shift"
+    const formElement = "formElement";
+
+    document.getElementById("formElement").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const formData = new FormData(formElement).entries();
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(Object.fromEntries(formData))
+        })
+    })
+
+
+
+</script>
+
+</html>

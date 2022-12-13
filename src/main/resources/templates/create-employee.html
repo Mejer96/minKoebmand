@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/form.css">
+    <meta charset="UTF-8">
+    <title>Opret Medarbejder</title>
+</head>
+<body>
+
+<!-- navbar -->
+<nav class="navbar navbar-expand-sm bg-white navbar-styling">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="navbar-item">
+                <a class="nav-link">Link 1</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- navbar -->
+
+<!-- form -->
+<div class="form-div">
+    <form id="formElement" method="post">
+        <h5>Medarbejder navn:</h5>
+        <label for="employeeFirstName">Fornavn</label>
+        <br>
+        <input type="text" name="employeeFirstName">
+        <br>
+        <label for="employeeLastname">Efternavn</label>
+        <br>
+        <input type="text" name="employeeLastname">
+        <br>
+        <label for="dateOfBirth">Fødselsdato</label>
+        <br>
+        <input type="date" placeholder="mm/dd/åå" name="dateOfBirth">
+        <br>
+        <label for="phoneNumber">Telefonnummer:</label>
+        <br>
+        <input type="number" name="phoneNumber">
+        <br>
+        <label for="email">Email:</label>
+        <br>
+        <input type="email" name="email">
+    </form>
+</div>
+<!-- form -->
+
+</body>
+
+<script>
+    const url = "http://localhost:8080/create-employee"
+    const formElement = "formElement";
+
+    document.getElementById("formElement").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const formData = new FormData(formElement).entries();
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(Object.fromEntries(formData))
+        })
+    })
+</script>
+
+</html>
