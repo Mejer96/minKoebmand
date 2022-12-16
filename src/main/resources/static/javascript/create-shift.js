@@ -1,5 +1,5 @@
+// user task 1.1
 class createShift {
-
     async postShiftDetails(url, htmlElement, event) {
         event.preventDefault()
         const formData = new FormData(htmlElement).entries();

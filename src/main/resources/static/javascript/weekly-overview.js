@@ -1,17 +1,21 @@
+// user task 2.3
 class weeklyOverview {
 
     async requestWeeklyShift(url) {
         let response = await fetch(url);
-        return  await response.json();
+        let employees = await response.json();
+
+        this.showShiftPerDay(employees)
+
     }
 
     showShiftPerDay(data) {
 
         for (let i = 0; i < data.length; i++) {
 
-            switch (data[i].day) {
+            switch (data[i].weekday) {
                 case "mandag":
-                    let elementToAppendMonday = "<a href='#' class='list-group-item'>" + data[i].firstname + " " + data[i].lastname + "</a>";
+                    let elementToAppendMonday = "<a class='list-group-item'>" + data[i].firstname + " " + data[i].lastname + "</a>";
                     $("#monday").append(elementToAppendMonday);
                     break;
                 case "tirsdag":

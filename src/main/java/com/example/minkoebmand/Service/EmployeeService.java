@@ -6,12 +6,12 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Optional;
+import java.util.*;
 
 @Getter
 @Setter
 @Service
+// user task 4.3
 public class EmployeeService implements IEmployeeService{
     private EmployeeRepository employeeRepository;
 
@@ -19,28 +19,43 @@ public class EmployeeService implements IEmployeeService{
         this.employeeRepository = employeeRepository;
     }
 
+    // user task 5.2
     @Override
-    public ArrayList<Employee> findAll() {
-        return null;
+    public Employee findByFirstNameAndLastname(String firstName, String lastname) {
+
+        return employeeRepository.findByFirstNameAndLastname(firstName, lastname);
     }
 
+    // user task 5.2
+    @Override
+    public Set<Employee> findAll() {
+        Set<Employee> set = new HashSet<>();
+        employeeRepository.findAll().forEach(set::add);
+        return set;
+    }
+
+    // user task 4.3
     @Override
     public Employee save(Employee object) {
-        return null;
+
+        return employeeRepository.save(object);
     }
 
+    // user task 5.2
     @Override
     public void delete(Employee object) {
-
+        employeeRepository.delete(object);
     }
 
+    // user task 5.2
     @Override
     public void deleteByID(Long aLong) {
 
     }
 
+    // user task 5.2
     @Override
-    public Optional<Employee> findById() {
-        return Optional.empty();
+    public Optional<Employee> findById(Long aLong) {
+        return employeeRepository.findById(aLong);
     }
 }

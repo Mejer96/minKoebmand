@@ -12,6 +12,7 @@ import java.sql.Date;
 @Getter
 @Setter
 @Entity
+// user task 4.3 and user task 5.2
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

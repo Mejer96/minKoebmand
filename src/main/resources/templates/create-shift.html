@@ -8,7 +8,7 @@
     <title>Opret Vagt</title>
 </head>
 <body>
-
+<!-- User tasks 1.1 -->
 <!-- navbar -->
 <nav class="navbar navbar-expand-sm bg-white navbar-styling">
     <div class="container-fluid">
@@ -42,11 +42,12 @@
         <br>
         <label for="startTime">Mødetid:</label>
         <br>
-        <input type="time" name="startTime">
+        <input type="time" name="shiftStartTime">
         <br>
         <label for="endTime">Sluttidspunkt:</label>
         <br>
-        <input type="time" name="endTime">
+        <input type="time" name="shiftEndTime">
+        <button type="submit">Tilføj</button>
     </form>
 
 </div>
@@ -56,10 +57,10 @@
 
 <script>
 
-    const url = "http://localhost:8080/create-shift"
-    const formElement = "formElement";
+    const url = "http://localhost:8080/save-shift-api"
+    const formElement = document.getElementById("formElement");
 
-    document.getElementById("formElement").addEventListener("submit", async function (e) {
+    formElement.addEventListener("submit", async function (e) {
         e.preventDefault();
         const formData = new FormData(formElement).entries();
         const response = await fetch(url, {

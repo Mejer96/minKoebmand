@@ -5,10 +5,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/daily-overview.css">
     <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+    <script rel="script" type="text/javascript" src="/javascript/employee-overview.js"></script>
     <meta charset="UTF-8">
     <title>Dagligt overblik</title>
 </head>
 <body>
+<!-- user task 2.3 -->
 <!-- navbar -->
 <nav class="navbar navbar-expand-sm bg-white navbar-styling">
     <div class="container-fluid">
@@ -28,4 +30,13 @@
 </div>
 
 </body>
+
+<script>
+    const dailyOverview = new DailyOverview();
+
+    $(document).ready(async function (){
+        await dailyOverview.requestDailyShifts()
+    })
+</script>
+
 </html>

@@ -10,16 +10,21 @@ import java.sql.Time;
 @Getter
 @Setter
 @Entity
+// user task 1.3
 public class Shift {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private Date date;
-    private Time shiftStartTime;
-    private Time shiftEndTime;
+    private String shiftStartTime;
+    private String shiftEndTime;
     private int weekNumber;
     @Transient
-    private String employeeName;
+    private String weekDay;
+    @Transient
+    private String employeeFirstName;
+    @Transient
+    private String employeeLastname;
     @ManyToOne
     private Employee employee;
 
@@ -27,11 +32,12 @@ public class Shift {
 
     public Shift() {}
 
-    public Shift(Date date, Time shiftStartTime, Time shiftEndTime, int weekNumber, String employeeName) {
+    public Shift(Date date, String shiftStartTime, String shiftEndTime, int weekNumber) {
+        System.out.println(shiftEndTime);
         this.date = date;
         this.shiftStartTime = shiftStartTime;
         this.shiftEndTime = shiftEndTime;
         this.weekNumber = weekNumber;
-        this.employeeName = employeeName;
+
     }
 }

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="/css/form.css">
+    <script rel="script" type="text/javascript" src="/javascript/modify-employee.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Redigér Medarbejder</title>
+</head>
+<body>
+<!-- user task 5.3 -->
+<!-- navbar -->
+<nav class="navbar navbar-expand-sm bg-white navbar-styling">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="navbar-item">
+                <a class="nav-link">Link 1</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- navbar -->
+
+<!-- form -->
+<div class="form-div">
+    <form id="formElement" method="post">
+        <h5>Medarbejder navn:</h5>
+        <label for="employeeID">Medarbejder ID:</label>
+        <br>
+        <input id="employeeID" type="number" readonly>
+        <br>
+        <label for="employeeFirstName">Fornavn</label>
+        <br>
+        <input id="employeeFirstName" type="text" name="employeeFirstName">
+        <br>
+        <label for="employeeLastname">Efternavn</label>
+        <br>
+        <input id="employeeLastname" type="text" name="employeeLastname">
+        <br>
+        <label for="dateOfBirth">Fødselsdato</label>
+        <br>
+        <input id="dateOfBirth" type="date" placeholder="mm/dd/åå" name="dateOfBirth">
+        <br>
+        <label for="phoneNumber">Telefonnummer:</label>
+        <br>
+        <input id="phoneNumber" type="number" name="phoneNumber">
+        <br>
+        <label for="email">Email:</label>
+        <br>
+        <input id="email" type="email" name="email">
+        <button id="submitButton" type="submit">Redigér</button>
+    </form>
+</div>
+<!-- form -->
+
+
+</body>
+
+<script>
+    const modifyEmployee = new ModifyEmployee();
+    const url = modifyEmployee.getUrlElements();
+    modifyEmployee.requestEmployeeDetails(url)
+
+</script>
+</html>

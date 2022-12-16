@@ -1,24 +1,20 @@
-class dailyOverview {
-
+// user task 2.3
+class DailyOverview {
     async requestDailyShifts(url) {
         let response = await fetch(url);
-        return  await response.json();
+        let dailyShifts =  await response.json();
+
+        this.showDailyShifts(dailyShifts)
     }
 
     showDailyShifts(data) {
         for (let i = 0; i < data.length; i++) {
-
-
-
             console.log(data[i].name)
             let id = data.ID
-            let height = this.calculateHeight(data.hours, data.minutes)
-
-            let elementToAppend = '<div  class="employee-shift-daily-overview" id=${data.id}>" + data[i].name + "</div>';
+            let elementToAppend = '<div  class="employee-shift-daily-overview">' + data[i].name + '</div>';
             $("#daily-overview").append(elementToAppend);
-            $("#placeholder").setAttribute("id", id);
 
-            $('#' + id).style.height(height + 'px')
+
         }
     }
 

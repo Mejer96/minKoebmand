@@ -7,7 +7,7 @@
     <title>Opret Medarbejder</title>
 </head>
 <body>
-
+<!-- user task 4.1 -->
 <!-- navbar -->
 <nav class="navbar navbar-expand-sm bg-white navbar-styling">
     <div class="container-fluid">
@@ -24,13 +24,13 @@
 <div class="form-div">
     <form id="formElement" method="post">
         <h5>Medarbejder navn:</h5>
-        <label for="employeeFirstName">Fornavn</label>
+        <label for="firstName">Fornavn</label>
         <br>
-        <input type="text" name="employeeFirstName">
+        <input type="text" name="firstName">
         <br>
-        <label for="employeeLastname">Efternavn</label>
+        <label for="lastname">Efternavn</label>
         <br>
-        <input type="text" name="employeeLastname">
+        <input type="text" name="lastname">
         <br>
         <label for="dateOfBirth">Fødselsdato</label>
         <br>
@@ -43,17 +43,17 @@
         <label for="email">Email:</label>
         <br>
         <input type="email" name="email">
+        <button type="submit">Tilføj</button>
     </form>
 </div>
 <!-- form -->
-
 </body>
 
 <script>
-    const url = "http://localhost:8080/create-employee"
-    const formElement = "formElement";
+    const url = "http://localhost:8080/save-employee-api"
+    const formElement = document.getElementById("formElement");
 
-    document.getElementById("formElement").addEventListener("submit", async function (e) {
+    formElement.addEventListener("submit", async function (e) {
         e.preventDefault();
         const formData = new FormData(formElement).entries();
         const response = await fetch(url, {
