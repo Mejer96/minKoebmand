@@ -28,6 +28,7 @@ public class ShiftAPI {
     @PostMapping("/get-shifts-by-week-api/{weekNumber}")
     public ResponseEntity<Set<Shift>> getShiftsByWeekFromRepository(@PathVariable("weekNumber") int weekNumber) {
         Set<Shift> shifts = shiftService.findShiftsByWeekNumber(weekNumber);
+        System.out.println("hello from" + weekNumber);
         return new ResponseEntity<>(shifts, HttpStatus.OK);
     }
 

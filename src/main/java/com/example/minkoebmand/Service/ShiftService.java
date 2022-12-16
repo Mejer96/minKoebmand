@@ -52,7 +52,10 @@ public class ShiftService implements IShiftService {
 
     // user task 2.3
     public Set<Shift> findShiftsByWeekNumber(int weekNumber) {
-        return shiftRepository.findShiftsByWeekNumber(weekNumber);
+        Set<Shift> set = new HashSet<>();
+        shiftRepository.findShiftsByWeekNumber(weekNumber).forEach(set::add);
+        return set;
+
     }
 
     public Set<Shift> findShiftsByDate(Date date) {

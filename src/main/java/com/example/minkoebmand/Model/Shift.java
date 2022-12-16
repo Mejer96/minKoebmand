@@ -19,7 +19,6 @@ public class Shift {
     private String shiftStartTime;
     private String shiftEndTime;
     private int weekNumber;
-    @Transient
     private String weekDay;
     @Transient
     private String employeeFirstName;

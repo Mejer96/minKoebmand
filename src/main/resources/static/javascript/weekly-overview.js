@@ -1,44 +1,49 @@
 // user task 2.3
-class weeklyOverview {
+class WeeklyOverview {
 
-    async requestWeeklyShift(url) {
-        let response = await fetch(url);
-        let employees = await response.json();
 
-        this.showShiftPerDay(employees)
+    showWeekDays(data) {
+
+
+        $("#weekly-overview").append('<div id="monday" class="div-daily-info-weekly-overview"></div>' +
+        '<div id="tuesday" class="div-daily-info-weekly-overview"></div>' +
+        '<div id="wednesday" class="div-daily-info-weekly-overview"></div>' +
+        '<div id="thursday" class="div-daily-info-weekly-overview"></div>' +
+        '<div id="friday" class="div-daily-info-weekly-overview"></div>' +
+        '<div id="saturday" class="div-daily-info-weekly-overview"></div>' +
+        '<div id="sunday" class="div-daily-info-weekly-overview"></div>')
+
+        $("#monday").setAttribute("href", )
 
     }
 
-    showShiftPerDay(data) {
 
+    showShiftPerDay(data) {
+        console.log(data)
         for (let i = 0; i < data.length; i++) {
 
-            switch (data[i].weekday) {
-                case "mandag":
-                    let elementToAppendMonday = "<a class='list-group-item'>" + data[i].firstname + " " + data[i].lastname + "</a>";
+            switch (data[i].weekDay) {
+                case "Monday":
+                    let elementToAppendMonday = "<a class='list-group-item'>" + data[i].employee.firstName + " " + data[i].employee.lastname + "</a>";
                     $("#monday").append(elementToAppendMonday);
                     break;
-                case "tirsdag":
-                    let elementToAppendTuesday = "<a href='#' class='list-group-item'>" + data[i].firstname + " " + data[i].lastname + "</a>";
+                case "Tuesday":
+                    let elementToAppendTuesday = "<a class='list-group-item'>" + data[i].employee.firstName + " " + data[i].employee.lastname + "</a>";
                     $("#tuesday").append(elementToAppendTuesday);
                     break;
-                case "onsdag":
-                    let elementToAppendWednesday = "<a href='#' class='list-group-item'>" + data[i].firstname + " " + data[i].lastname + "</a>";
+                case "Wednesday":
+                    let elementToAppendWednesday = "<a class='list-group-item'>" + data[i].employee.firstName + " " + data[i].employee.lastname + "</a>";
                     $("#wednesday").append(elementToAppendWednesday);
                     break;
-                case "torsdag":
-                    let elementToAppendThursday = "<a href='#' class='list-group-item'>" + data[i].firstname + " " + data[i].lastname + "</a>";
+                case "Thursday":
+                    let elementToAppendThursday = "<a class='list-group-item'>" + data[i].employee.firstName + " " + data[i].employee.lastname + "</a>";
                     $("#thursday").append(elementToAppendThursday);
                     break;
-                case "fredag":
-                    let elementToAppendFriday = "<a href='#' class='list-group-item'>" + data[i].firstname + " " + data[i].lastname + "</a>";
+                case "Friday":
+                    let elementToAppendFriday = "<a class='list-group-item'>" + data[i].employee.firstName + " " + data[i].employee.lastname + "</a>";
                     $("#friday").append(elementToAppendFriday);
                     break;
             }
-
         }
     }
-
-
-
 }

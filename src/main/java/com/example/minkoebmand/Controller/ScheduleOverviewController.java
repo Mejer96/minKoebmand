@@ -2,6 +2,7 @@ package com.example.minkoebmand.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class ScheduleOverviewController {
@@ -13,8 +14,8 @@ public class ScheduleOverviewController {
     }
 
     // user task 2.2
-    @GetMapping("/daily-overview")
-    public String requestDailyOverviewPage() {
+    @GetMapping("/daily-overview/{weekNumber}/{weekDay}")
+    public String requestDailyOverviewPage(@PathVariable("weekNumber") int weekNumber, @PathVariable("weekDay") String weekDay) {
         return "daily-overview";
     }
 }

@@ -24,8 +24,4 @@ public class EmployeeController {
     public String requestCreateEmployeePage() {
         return "create-employee";
     }
-
-
-
-
 }
