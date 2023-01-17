@@ -19,6 +19,7 @@ public class EmployeeAPI {
     }
 
     // user task 5.2
+    @CrossOrigin
     @GetMapping("/show-employee/{id}/api")
     public ResponseEntity<Employee> getEmployeeByID(@PathVariable("id") long id) {
         Employee employee = null;
@@ -29,6 +30,7 @@ public class EmployeeAPI {
     }
 
     // 5.2
+    @CrossOrigin
     @GetMapping("/show-all-employees-api")
     public ResponseEntity<Set<Employee>> getAllEmployees() {
         System.out.println("hello employee api");
@@ -37,6 +39,7 @@ public class EmployeeAPI {
     }
 
     // user task 4.2
+    @CrossOrigin
     @PostMapping("/save-employee-api")
     public ResponseEntity<Employee> saveEmployeeToRepository(@RequestBody Employee employee) {
         System.out.println("save-api");
@@ -47,6 +50,7 @@ public class EmployeeAPI {
     }
 
     // user task 5.2
+    @CrossOrigin
     @PostMapping("/update-employee-api")
     public void updateEmployeeRepository(@RequestBody Employee employee) {
 

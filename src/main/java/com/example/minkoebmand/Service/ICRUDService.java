@@ -10,5 +10,4 @@ public interface ICRUDService<T, ID> {
     void delete(T object);
     void deleteByID(ID id);
     Optional<T> findById(ID id);
-
 }

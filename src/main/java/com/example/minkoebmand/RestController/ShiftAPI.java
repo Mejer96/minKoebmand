@@ -25,6 +25,7 @@ public class ShiftAPI {
 
 
     // user task 2.3
+    @CrossOrigin
     @PostMapping("/get-shifts-by-week-api/{weekNumber}")
     public ResponseEntity<Set<Shift>> getShiftsByWeekFromRepository(@PathVariable("weekNumber") int weekNumber) {
         Set<Shift> shifts = shiftService.findShiftsByWeekNumber(weekNumber);
@@ -33,6 +34,7 @@ public class ShiftAPI {
     }
 
     // user task 2.3
+    @CrossOrigin
     @PostMapping("/get-shift-by-date-api/{date}")
     public ResponseEntity<Set<Shift>> getShiftsByDateFromRepository(@PathVariable("date") Date date) {
         Set<Shift> shifts = shiftService.findShiftsByDate(date);
@@ -41,6 +43,7 @@ public class ShiftAPI {
 
 
     // user task 1.2
+    @CrossOrigin
     @PostMapping("/save-shift-api")
     public ResponseEntity<Shift> saveShiftToRepository(@RequestBody Shift shift) {
         Employee employee = employeeService.findByFirstNameAndLastname(shift.getEmployeeFirstName(), shift.getEmployeeLastname());

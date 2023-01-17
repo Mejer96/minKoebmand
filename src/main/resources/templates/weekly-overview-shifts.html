@@ -41,34 +41,7 @@
 
 <!-- weekly data -->
 <div id="weekly-overview" class="div-weekly-overview">
-    <div id="monday" class="div-daily-info-weekly-overview">
-        <a id="monday-href">Mandag</a>
-        <a href="#"></a>
-    </div>
-    <div id="tuesday" class="div-daily-info-weekly-overview">
-        <a id="tuesday-href">Tirsdag</a>
-        <a href="#"></a>
-    </div>
-    <div id="wednesday" class="div-daily-info-weekly-overview">
-        <a id="wednesday-href">Onsdag</a>
-        <a href="#"></a>
-    </div>
-    <div id="thursday" class="div-daily-info-weekly-overview">
-        <a id="thursday-href">Torsdag</a>
-        <a href="#"></a>
-    </div>
-    <div id="friday" class="div-daily-info-weekly-overview">
-        <a id="friday-href">Fredag</a>
-        <a href="#"></a>
-    </div>
-    <div id="saturday" class="div-daily-info-weekly-overview">
-        <a id="saturday-href">Lørdag</a>
-        <a href="#"></a>
-    </div>
-    <div id="sunday" class="div-daily-info-weekly-overview">
-        <a id="sunday-href">Søndag</a>
-        <a href="#"></a>
-    </div>
+
 </div>
 
 
@@ -86,17 +59,39 @@
         e.preventDefault();
         let weekNumber = new FormData(formElement).get("week")
         let formData = new FormData(formElement).entries()
-        const url = "http://localhost:8080/get-shifts-by-week-api/" + weekNumber;
+        const url = "http://localhost:8082/get-shifts-by-week-api/" + weekNumber;
         const response = await fetch(url, {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(Object.fromEntries(formData))
         })
         let weeklyShifts = await response.json();
-        console.log(weeklyShifts)
-        console.log(weeklyShifts[0].employee.firstName)
+        showWeeklySchedule();
         weeklyOverview.showShiftPerDay(weeklyShifts)
     })
+
+    function showWeeklySchedule() {
+        $("#weekly-overview").append('<div class="div-daily-info-weekly-overview" id="monday"></div>')
+        $("#monday").append("<a id='monday-href'>Mandag</a>")
+
+        $("#weekly-overview").append('<div class="div-daily-info-weekly-overview" id="tuesday"></div>')
+        $("#tuesday").append("<a id='tuesday-href'>Tirsdag</a>")
+
+        $("#weekly-overview").append('<div class="div-daily-info-weekly-overview" id="wednesday"></div>')
+        $("#wednesday").append("<a id='wednesday-href'>Onsdag</a>")
+
+        $("#weekly-overview").append('<div class="div-daily-info-weekly-overview" id="thursday"></div>')
+        $("#thursday").append("<a id='thursday-href'>Torsdag</a>")
+
+        $("#weekly-overview").append('<div class="div-daily-info-weekly-overview" id="friday"></div>')
+        $("#friday").append("<a id='friday-href'>Fredag</a>")
+
+        $("#weekly-overview").append('<div class="div-daily-info-weekly-overview" id="saturday"></div>')
+        $("#saturday").append("<a id='saturday-href'>Lørdag</a>")
+
+        $("#weekly-overview").append('<div class="div-daily-info-weekly-overview" id="sunday"></div>')
+        $("#sunday").append("<a id='sunday-href'>Søndag</a>")
+    }
 
 
 
