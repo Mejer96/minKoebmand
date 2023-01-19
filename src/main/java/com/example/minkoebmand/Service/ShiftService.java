@@ -11,7 +11,7 @@ import java.util.*;
 @Getter
 @Setter
 @Service
-// user task 1.1 and 2.3
+// user task 1.1, 2.3, 2.4
 public class ShiftService implements IShiftService {
     private ShiftRepository shiftRepository;
 

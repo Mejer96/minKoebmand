@@ -19,7 +19,6 @@ public class EmployeeAPI {
     }
 
     // user task 5.2
-    @CrossOrigin
     @GetMapping("/show-employee/{id}/api")
     public ResponseEntity<Employee> getEmployeeByID(@PathVariable("id") long id) {
         Employee employee = null;
@@ -33,7 +32,6 @@ public class EmployeeAPI {
     @CrossOrigin
     @GetMapping("/show-all-employees-api")
     public ResponseEntity<Set<Employee>> getAllEmployees() {
-        System.out.println("hello employee api");
         Set<Employee> set = employeeService.findAll();
         return new ResponseEntity<>(set, HttpStatus.OK);
     }

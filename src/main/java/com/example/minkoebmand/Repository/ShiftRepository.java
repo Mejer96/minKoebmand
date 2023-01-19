@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.Date;
 import java.util.Set;
-// user task 1.3
+// user task 1.3, 2.3
 public interface ShiftRepository extends CrudRepository<Shift, Long> {
 
     // user task 2.3

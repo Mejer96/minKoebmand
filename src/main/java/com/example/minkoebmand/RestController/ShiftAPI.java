@@ -29,12 +29,10 @@ public class ShiftAPI {
     @PostMapping("/get-shifts-by-week-api/{weekNumber}")
     public ResponseEntity<Set<Shift>> getShiftsByWeekFromRepository(@PathVariable("weekNumber") int weekNumber) {
         Set<Shift> shifts = shiftService.findShiftsByWeekNumber(weekNumber);
-        System.out.println("hello from" + weekNumber);
         return new ResponseEntity<>(shifts, HttpStatus.OK);
     }
 
     // user task 2.3
-    @CrossOrigin
     @PostMapping("/get-shift-by-date-api/{date}")
     public ResponseEntity<Set<Shift>> getShiftsByDateFromRepository(@PathVariable("date") Date date) {
         Set<Shift> shifts = shiftService.findShiftsByDate(date);

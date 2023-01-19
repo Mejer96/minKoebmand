@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
+// user tasks 5.2, 4.1
 public class EmployeeController {
 
     // user task 5.2

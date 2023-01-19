@@ -11,7 +11,7 @@ import java.util.*;
 @Getter
 @Setter
 @Service
-// user task 4.3
+// user task 5.2, 4.2
 public class EmployeeService implements IEmployeeService{
     private EmployeeRepository employeeRepository;
 
@@ -34,7 +34,7 @@ public class EmployeeService implements IEmployeeService{
         return set;
     }
 
-    // user task 4.3
+    // user task 4.2
     @Override
     public Employee save(Employee object) {
 
